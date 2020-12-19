@@ -3,64 +3,9 @@
 	<head>
 		<title>Pokedex</title>
 		<meta charset="UTF-8">
-	
-		<style>
-			
-			.type {
-			  position: relative;
-			}					
-			
-			body {background-color: #F9F9F9;}
-			
-			.searchbar{
-				padding: 20px;			
-			}
-			
-			input[type=text] {
-			  width: 60%;
-			  padding: 12px 20px;
-			  box-sizing: border-box;
-			}
-			
-			select {
-			  width: 58.5%;
-			  padding: 12px 20px;
-			  box-sizing: border-box;
-			}
-			
-			.header{
-				padding: 5px;
-				text-align: center;
-				background: #414141;
-				color: white;
-				font-size: 25px;
-				font-family: Raleway;
-			}
-			
-			a:link {
-			  color: #F9F9F9;
-			  background-color: transparent;
-			  text-decoration: none;
-			}
 
-			a:visited {
-			  color: #F9F9F9;
-			  background-color: transparent;
-			  text-decoration: none;
-			}
-
-			a:hover {
-			  color: #F9F9F9;
-			  background-color: transparent;
-			  text-decoration: none;
-			}
-
-			a:active {
-			  color: #F9F9F9;
-			  background-color: transparent;
-			  text-decoration: none;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/master.css" />
+		<script type="text/javascript" src="js/javascript.js"></script>
 	</head>
 	<header>
 		<div class="header">
@@ -70,14 +15,14 @@
 	<body>
 		<center>
 			<div class= "searchbar">
-				<h1><input type="text" placeholder="Busca un Pokémon..."></h1>
+				<h1><input type="text" placeholder="Search a Pokémon..."></h1>
 			</div>
-			<select name="type" id="type" onchange="if (this.value) window.location.href='?type='+this.value">
-				<option hidden value="0">Selecciona un tipo...</option>
-				<option value="fire">Fuego</option>
-				<option value="water">Agua</option>
-				<option value="plant">Planta</option>
+			<select id="typeSelect" onchange=searchType(this.value)>
+				<option hidden value="0">Select a type...</option>
 			</select> 
+			<ul id="typeList">
+
+			</ul>
 		</center>
 	</body>
 </html>
