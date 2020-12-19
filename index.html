@@ -72,13 +72,14 @@
 			<div class= "searchbar">
 				<h1><input type="text" placeholder="Busca un Pokémon..."></h1>
 			</div>
-			<select name="type" id="type">
+			<select name="type" id="type" onchange="if (this.value) window.location.href='?type='+this.value">
 				<option hidden value="0">Selecciona un tipo...</option>
-				<option value="fuego">Fuego</option>
-				<option value="agua">Agua</option>
-				<option value="planta">Planta</option>
+				<option value="fire">Fuego</option>
+				<option value="water">Agua</option>
+				<option value="plant">Planta</option>
 			</select> 
-			</div> 
+			</div>
+			
 		</center>
 	</body>
 </html>
