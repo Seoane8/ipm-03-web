@@ -18,9 +18,10 @@
 				<h1><input type="text" placeholder="Search a Pokémon..." onkeypress=searchPokemonPressKey(event,this.value)></h1>
 			</div>
 			<select id="typeSelect" onchange=searchType(this.value)>
-				<option hidden value="-1">Select a type...</option>
+				<option hidden selected>Select a type...</option>
 				<option value="0">all</option>
-			</select> 
+			</select>
+			<div class="loader" id=listLoader></div>
 			<ul id="typeList">
 
 			</ul>

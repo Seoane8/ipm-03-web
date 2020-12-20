@@ -1,20 +1,42 @@
-const url = "https://pokeapi.co/api/v2/type"
-const urlAll = "https://pokeapi.co/api/v2/pokemon"
-const http = new XMLHttpRequest()
+window.onload = init;
 
-http.open("GET", url)
-
-http.onreadystatechange = function(){
-
-    if(this.readyState == 4 && this.status == 200){
-        var resultado = JSON.parse(this.responseText)
-        typeSelector(resultado["results"])
-    }
+function init(){
+    getTypes();
+    searchAll();
 }
 
-http.send()
+function getTypes(){
+    const url = "https://pokeapi.co/api/v2/type"
+    const http = new XMLHttpRequest()
 
-window.onload = searchAll;
+    http.open("GET", url)
+
+    http.onreadystatechange = function(){
+
+        if(this.readyState == 4 && this.status == 200){
+            var typeSelect = document.getElementById("typeSelect")
+            var types = JSON.parse(this.responseText)["results"]
+
+            for (let type in types){
+                var option = document.createElement("option")
+                value = types[type]["url"].split("/")[6]
+                
+                option.setAttribute("value", value)
+                option.setAttribute("label", types[type]["name"])
+
+                typeSelect.appendChild(option)
+            }
+        }else if(this.readyState == 4 && this.status != 200){
+            if(window.confirm("An error has ocurred. Retry?")){
+                this.open("GET", url)
+                this.send()
+            }
+
+        }
+    }
+
+    http.send()
+}
 
 function searchAll(){
     var typeList = document.getElementById("typeList")
@@ -24,10 +46,12 @@ function searchAll(){
 
 function searchNext(urlNext){
     var typeList = document.getElementById("typeList")
+    var loader = document.getElementById("listLoader")
     var prevButton = document.getElementById("seeMoreButton")
     if (prevButton){
         typeList.removeChild(prevButton)
     }
+
     const client = new XMLHttpRequest()
 
     client.open("GET", urlNext)
@@ -42,6 +66,7 @@ function searchNext(urlNext){
 
                 element = createElement(name, num)
 
+
                 typeList.appendChild(element)
             }
             var button = document.createElement("button")
@@ -49,25 +74,20 @@ function searchNext(urlNext){
             button.setAttribute("onclick", "searchNext('"+urlNext+"')")
             button.appendChild(document.createTextNode("See More"))
             button.setAttribute("id", "seeMoreButton")
+            loader.style.display = "none"
             typeList.appendChild(button)
+        }else if(this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
+            loader.style.display = "block";
+        }else if(this.readyState == 4 && this.status != 200){
+            if(window.confirm("An error has ocurred. Retry?")){
+                this.open("GET", urlNext)
+                this.send()
+            }
+
         }
     }
     
      client.send()
-}
-
-function typeSelector(types){
-    var typeSelect = document.getElementById("typeSelect")
-
-    for (let type in types){
-        var option = document.createElement("option")
-        value = types[type]["url"].split("/")[6]
-        
-        option.setAttribute("value", value)
-        option.setAttribute("label", types[type]["name"])
-
-        typeSelect.appendChild(option)
-    }
 }
 
 function searchType(type){
@@ -75,10 +95,15 @@ function searchType(type){
         searchAll()
         return
     }
+    
     var typeList = document.getElementById("typeList")
+    var loader = document.getElementById("listLoader")
     const client = new XMLHttpRequest()
+    const url = "https://pokeapi.co/api/v2/type/"+type
 
-    client.open("GET", url+'/'+type)
+    loader.style.display = "block";
+
+    client.open("GET", url)
 
     client.onreadystatechange = function(){
 
@@ -93,6 +118,15 @@ function searchType(type){
 
                 typeList.appendChild(element)
             }
+            loader.style.display = "none";
+        }else if(this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
+            loader.style.display = "block";
+        }else if(this.readyState == 4 && this.status != 200){
+            if(window.confirm("An error has ocurred. Retry?")){
+                this.open("GET", url)
+                this.send()
+            }
+
         }
     }
     
