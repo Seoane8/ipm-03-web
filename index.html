@@ -15,7 +15,7 @@
 	<body>
 		<center>
 			<div class= "searchbar">
-				<h1><input type="text" placeholder="Search a Pokémon..."></h1>
+				<h1><input type="text" placeholder="Search a Pokémon..." onkeypress=searchPokemonPressKey(event,this.value)></h1>
 			</div>
 			<select id="typeSelect" onchange=searchType(this.value)>
 				<option hidden value="0">Select a type...</option>

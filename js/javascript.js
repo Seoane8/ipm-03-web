@@ -36,14 +36,13 @@ function searchType(type){
     client.onreadystatechange = function(){
 
         if(this.readyState == 4 && this.status == 200){
+            typeList.innerHTML = ''
             var resultado = JSON.parse(this.responseText)["pokemon"]
             for (let i in resultado){
-                var element = document.createElement("li")
                 var name = resultado[i]["pokemon"]["name"]
                 var num = resultado[i]["pokemon"]["url"].split("/")[6]
 
-                element.setAttribute("value", num)
-                element.appendChild(document.createTextNode(name))
+                element = createElement(name, num)
 
                 typeList.appendChild(element)
             }
@@ -52,4 +51,35 @@ function searchType(type){
     
      client.send()
 
+}
+
+function createElement(name, num){
+    urlImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+num+".png"
+
+    li = document.createElement("li")
+    div = document.createElement("div")
+    img = document.createElement("img")
+    h4 = document.createElement("h4")
+
+    img.setAttribute("src", urlImg)
+    img.setAttribute("onerror", "this.src='img/unknown.jpg'")
+    h4.appendChild(document.createTextNode(name))
+    div.appendChild(img)
+    div.appendChild(h4)
+    div.setAttribute("class", "pokemonListItem")
+    li.appendChild(div)
+    li.setAttribute("onclick", "searchPokemon("+num+")")
+
+    return li
+}
+
+function searchPokemonPressKey(key,id){
+    if (key.keyCode == 13){
+        searchPokemon(id)
+    }
+}
+
+function searchPokemon(id){
+    page = window.location.pathname.replace("index.html", "pokemon.html?id="+id)
+    window.location.href = page
 }

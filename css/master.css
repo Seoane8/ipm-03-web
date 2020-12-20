@@ -26,6 +26,25 @@
     padding: 12px 20px;
     box-sizing: border-box;
   }
+
+  ul{
+    padding-left: 0;
+  }
+
+  li{
+    cursor: pointer;
+    display: inline; 
+    float: left; 
+    width: 33%; 
+  }
+
+  .pokemonListItem img{
+    width: 96px;
+  }
+
+  .pokemonListItem h4{
+    margin-top: 0;
+  }
   
   .header{
     padding: 5px;
