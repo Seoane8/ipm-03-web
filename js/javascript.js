@@ -1,4 +1,5 @@
 const url = "https://pokeapi.co/api/v2/type"
+const urlAll = "https://pokeapi.co/api/v2/pokemon"
 const http = new XMLHttpRequest()
 
 http.open("GET", url)
@@ -12,6 +13,48 @@ http.onreadystatechange = function(){
 }
 
 http.send()
+
+window.onload = searchAll;
+
+function searchAll(){
+    var typeList = document.getElementById("typeList")
+    typeList.innerHTML = ''
+    searchNext("https://pokeapi.co/api/v2/pokemon?offset=0&limit=21")
+}
+
+function searchNext(urlNext){
+    var typeList = document.getElementById("typeList")
+    var prevButton = document.getElementById("seeMoreButton")
+    if (prevButton){
+        typeList.removeChild(prevButton)
+    }
+    const client = new XMLHttpRequest()
+
+    client.open("GET", urlNext)
+
+    client.onreadystatechange = function(){
+
+        if(this.readyState == 4 && this.status == 200){
+            var resultado = JSON.parse(this.responseText)
+            for (let i in resultado['results']){
+                var name = resultado['results'][i]["name"]
+                var num = resultado['results'][i]["url"].split("/")[6]
+
+                element = createElement(name, num)
+
+                typeList.appendChild(element)
+            }
+            var button = document.createElement("button")
+            var urlNext = resultado["next"]
+            button.setAttribute("onclick", "searchNext('"+urlNext+"')")
+            button.appendChild(document.createTextNode("See More"))
+            button.setAttribute("id", "seeMoreButton")
+            typeList.appendChild(button)
+        }
+    }
+    
+     client.send()
+}
 
 function typeSelector(types){
     var typeSelect = document.getElementById("typeSelect")
@@ -28,6 +71,10 @@ function typeSelector(types){
 }
 
 function searchType(type){
+    if (type == '0'){
+        searchAll()
+        return
+    }
     var typeList = document.getElementById("typeList")
     const client = new XMLHttpRequest()
 
