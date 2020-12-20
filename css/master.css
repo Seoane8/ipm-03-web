@@ -73,6 +73,10 @@
     font-size: 25px;
     font-family: Raleway;
   }
+
+  #pokemonSplashArt img{
+    width: 100%;
+  }
   
   a:link {
     color: #F9F9F9;
