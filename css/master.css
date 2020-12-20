@@ -78,3 +78,7 @@
     background-color: transparent;
     text-decoration: none;
   }
+  
+  div.name {
+  text-transform: capitalize;
+}

@@ -83,3 +83,6 @@ function searchPokemon(id){
     page = window.location.pathname.replace("index.html", "pokemon.html?id="+id)
     window.location.href = page
 }
+	
+	
+
