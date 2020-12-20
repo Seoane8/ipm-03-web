@@ -5,53 +5,52 @@
 		<meta charset="UTF-8">
 
 		<link rel="stylesheet" type="text/css" href="css/master.css" />
-		<script type="text/javascript" src="js/pokemon.js"></script>
+		<script src="js/pokemon.js"></script>
 	</head>
 	<header>
 		<div class="header">
-			<h1><a style="text-decoration:none" color="white" href="index.html">Pokedex</a></h1>
+			<h1><a style="text-decoration:none" href="index.html">Pokedex</a></h1>
 		</div>
 	</header>
-	<body>
-		<center>
-			<h1 id=pokemonSplashArt></h2>
-            <h2 id=pokemonName></h1>
+	<div class="body">
+			<h1 id=pokemonSplashArt></h1>
+            <h2 id=pokemonName></h2>
             <div class="loader" id=pokemonLoader></div>
 			<div class='name'>
-					<ul align=center><li>
+				<ul>
+					<li>
 						<dl>
-							<dt><p align=left><b>Types:</b></p></dt>
+							<dt><p class="left"><b>Types:</b></p></dt>
 							<dd id="pokemonTypeList"></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><p align=left><b>Height:</b></p></dt>
+							<dt><p class="left"><b>Height:</b></p></dt>
 							<dd id="pokemonHeight"></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><p align=left><b>Weight:</b></p></dt>
+							<dt><p class="left"><b>Weight:</b></p></dt>
 							<dd id="pokemonWeight"></dd>
 						</dl>
 					</li>
-					<p class='rows'>
+				</ul>
+				<ul class="rows">
 					<li>
 						<dl>
-							<dt><p align=left><b>Abilities:</b></p></dt>
+							<dt><p class="left"><b>Abilities:</b></p></dt>
 							<dd id="pokemonAbility"></dd>
 						</dl>
 					</li>
 					<li>
 						<dl>
-							<dt><p align=left><b>Moves:</b></p></dt>
+							<dt><p class="left"><b>Moves:</b></p></dt>
 							<dd id="pokemonMove"></dd>
 						</dl>
 					</li>
-					</p>
 				</ul>
-				</div>
-		</center>
-	</body>
+			</div>
+		</div>
 </html>

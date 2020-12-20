@@ -23,8 +23,8 @@
   }
   
   .searchbar{
-    width: 60%;
-    padding: 20px;			
+    padding: 20px;	
+
   }
 
   .searchButton{
@@ -34,9 +34,10 @@
   }
   
   input[type=text] {
-    width: 100%;
+    width: 60%;
     padding: 12px 20px;
     box-sizing: border-box;
+
   }
   
   select {
@@ -107,6 +108,13 @@
   }
 
   .rows{
-	padding-top:110px;
-	padding-left:0px;
+	padding-top:120px;
+  }
+  
+   .body{
+	text-align:center;
+  }
+  
+  .left{
+	text-align:left;
   }
