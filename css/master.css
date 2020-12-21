@@ -23,13 +23,19 @@
   }
   
   #searchBar{
-    height: 42px;
-    margin: 20px 20%;
+    height: 100px;
+    margin: 40px 10%;
+    width: 80%;
   }
   #searchBar input{
-    height: 42px;
+    height: 100%;
     display: block;
     width: 80%;
+    font-size: 200%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid;
+    border-radius: 20px;
   }
   #searchBar div{
     float: right;
@@ -42,22 +48,22 @@
     padding: 33% 33% 33% 33%;
     background-color: #e5e5e5;
     border-radius: 15%;
-  }
-  
-  input[type=text] {
-    width: 60%;
-    padding: 12px 20px;
-    box-sizing: border-box;
-
+    border: 1px solid;
   }
   
   select {
-    width: 60%;
+    width: 80%;
+    height: 100px;
     padding: 12px 20px;
     box-sizing: border-box;
+    font-size: 200%;
+    border: 2px solid;
+    border-radius: 20px;
+    background-color: #e5e5e5;
   }
 
   #typeList {
+    margin-top: 10%;
     padding-left: 0;
   }
 
@@ -68,13 +74,25 @@
   }
 
   .pokemonListItem img{
-    width: 96px;
+    width: 80%;
     cursor: pointer
   }
 
   .pokemonListItem h4{
     margin-top: 0;
     cursor: pointer;
+    font-size: 170%;
+  }
+
+  #seeMoreButton {
+    height: 80px;
+    width: 70%;
+    font-size: 200%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    background-color: #e5e5e5;
+    border: 2px solid;
+    border-radius: 10px;
   }
   
   .header{

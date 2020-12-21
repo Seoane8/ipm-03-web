@@ -45,11 +45,12 @@ function searchAll(){
 }
 
 function searchNext(urlNext){
+    var body = document.getElementsByClassName("body")[0]
     var typeList = document.getElementById("typeList")
     var loader = document.getElementById("listLoader")
     var prevButton = document.getElementById("seeMoreButton")
     if (prevButton){
-        typeList.removeChild(prevButton)
+        body.removeChild(prevButton)
     }
 
     const client = new XMLHttpRequest()
@@ -69,7 +70,6 @@ function searchNext(urlNext){
 
                 typeList.appendChild(element)
             }
-            var body = document.getElementsByClassName("body")[0]
             var button = document.createElement("button")
             var urlNext = resultado["next"]
             button.setAttribute("onclick", "searchNext('"+urlNext+"')")
@@ -136,7 +136,7 @@ function searchType(type){
 }
 
 function createElement(name, num){
-    urlImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+num+".png"
+    urlImg = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+num+".png"
 
     li = document.createElement("li")
     div = document.createElement("div")
@@ -145,7 +145,7 @@ function createElement(name, num){
 
     img.setAttribute("src", urlImg)
     img.setAttribute("alt", name+" image")
-    img.setAttribute("onerror", "this.src='img/unknown.jpg' this.alt='Pokemon image not available'")
+    img.setAttribute("onerror", "this.src='img/unknown.jpg'; this.alt='Pokemon image not available'")
     h4.appendChild(document.createTextNode(name))
     div.appendChild(img)
     div.appendChild(h4)
@@ -163,7 +163,9 @@ function searchBarPokemon(){
 }
 
 function searchPokemon(id){
-    page = window.location.pathname.replace("index.html", "pokemon.html?id="+id)
+    arr = window.location.href.split('/')
+    last = arr[arr.length-1]
+    page = window.location.href.replace(last, "pokemon.html?id="+id)
     window.location.href = page
 }
 	
