@@ -46,11 +46,11 @@
     box-sizing: border-box;
   }
 
-  ul{
+  #typeList {
     padding-left: 0;
   }
 
-  li{
+  #typeList li{
     display: inline; 
     float: left; 
     width: 33%; 
@@ -75,8 +75,10 @@
     font-family: Raleway;
   }
 
-  #pokemonSplashArt img{
+  #pokemonSplashArt{
+    margin-top: 15px;
     width: 100%;
+    background-color: #e5e5e5;
   }
   
   a:link {
@@ -117,4 +119,67 @@
   
   .left{
 	text-align:left;
+  }
+
+  .stats {
+    padding: 5px;
+    background-color: #e5e5e5;
+    border-radius: 15px;
+  }
+
+  .stats div{
+    margin: 10px;
+    text-align: left;
+  }
+
+  .stats div div{
+    background-color: black;
+    margin: 5px 0px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    font-size: 90%;
+  }
+
+  #types {
+    margin: 20px 0px;
+  }
+
+  #types div{
+    text-transform: capitalize;
+    display: inline-block;
+    height: 20px;
+    width: 35%;
+    padding: 5px;
+    margin: 0px 5px;
+    border-radius: 5px;
+  }
+
+  
+  #pokemonInfo {
+    padding-left: 0;
+    background-color: #e5e5e5;
+    border-radius: 15px;
+    text-align: center;
+    column-count: 2;
+    list-style: none;
+    padding: 10px
+  }
+
+  #pokemonInfo li{
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+
+  .property {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 100%;
+    font-weight: bold;
+  }
+
+  .value {
+    display: block;
+    margin-top: 5px;
+    font-size: 125%;
   }

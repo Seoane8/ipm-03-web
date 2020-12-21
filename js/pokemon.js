@@ -1,6 +1,27 @@
 
 window.onload = init;
 
+let colorTypes = new Map();
+colorTypes['normal'] = "#A8A090"
+colorTypes['fighting'] = "#A05038"
+colorTypes['flying'] = "#98A8F0"
+colorTypes['poison'] = "#B058A0"
+colorTypes['ground'] = "#E9D6A4"
+colorTypes['rock'] = "#B8A058"
+colorTypes['bug'] = "#A8B820"
+colorTypes['ghost'] = "#6060B0"
+colorTypes['steel'] = "#A8A8C0"
+colorTypes['fire'] = "#F05030"
+colorTypes['water'] = "#3899F8"
+colorTypes['grass'] = "#78C850"
+colorTypes['electric'] = "#F8D030"
+colorTypes['psychic'] = "#F870A0"
+colorTypes['ice'] = "#58C8E0"
+colorTypes['dragon'] = "#7860E0"
+colorTypes['dark'] = "#7A5848"
+colorTypes['fairy'] = "#E79FE7"
+
+
 function init(){
 
     let params = new URLSearchParams(location.search)
@@ -19,41 +40,57 @@ function init(){
             var resultado = JSON.parse(this.responseText)
             var name = document.getElementById("pokemonName")
             var splashart = document.getElementById("pokemonSplashArt")
-            var typeList = document.getElementById("pokemonTypeList")
-            var height = document.getElementById("pokemonHeight")
-            var weight = document.getElementById("pokemonWeight")
             var ability = document.getElementById("pokemonAbility")
             var move = document.getElementById("pokemonMove")
+            var types = document.getElementById("types")
+            var info = document.getElementById("pokemonInfo")
             
-            var img = document.createElement("img")
-            
-            name.innerHTML = '<div class="name">'+resultado["name"]+"</div>"
-            img.setAttribute("src",  resultado["sprites"]["other"]["official-artwork"]["front_default"])
-            img.setAttribute("onerror", "this.src='img/unknown.jpg'")
-            splashart.appendChild(img)
-            
+            name.innerHTML = resultado["name"]
+            splashart.setAttribute("src",  resultado["sprites"]["other"]["official-artwork"]["front_default"])
+            splashart.setAttribute("onerror", "this.src='img/unknown.jpg'")
+
             for (let i in resultado['types']){
-                var aux = resultado['types'][i]['type']['name']
-                element = createElement(aux)
-                typeList.appendChild(element)
+                var type = resultado['types'][i]['type']['name']
+                element = document.createElement('div')
+                element.style.backgroundColor = colorTypes[type]
+                element.appendChild(document.createTextNode(type))
+                types.appendChild(element)
             }
             
-            element = createElement(resultado['height']/10 + "m")
-            height.appendChild(element)
+            height = createWeightHeight("Height", resultado['height']/10 + "m")
+            weight = createWeightHeight("Weight", resultado['weight']/10 + "Kgs")
+
+            info.appendChild(height)
+            info.appendChild(weight)
             
-            element = createElement(resultado['weight']/10 + "Kgs")
-            weight.appendChild(element)
-            
+            var li = document.createElement('li')
+            var propertySpan = document.createElement("span")
+            propertySpan.setAttribute("class", "property")
+            propertySpan.appendChild(document.createTextNode("Abilities"))
+            li.appendChild(propertySpan)
+
             for (let i in resultado['abilities']){
-                var aux = resultado['abilities'][i]['ability']['name']
-                element = createElement(aux)
-                ability.appendChild(element)
+                var ability = resultado['abilities'][i]['ability']['name']
+                var valueSpan = document.createElement("span")
+                valueSpan.setAttribute("class", "value")
+                valueSpan.appendChild(document.createTextNode(ability))
+                li.appendChild(valueSpan)
             }
+            info.appendChild(li)
             
             for (let i in resultado['moves']){
                 var aux = resultado['moves'][i]['move']['name']
                 element = createElement(aux)
                 move.appendChild(element)
+            }
+
+            for (let i in resultado['stats']){
+                statName = resultado['stats'][i]['stat']['name']
+                baseStat = resultado['stats'][i]['base_stat']
+                var stat = document.getElementById(statName)
+                
+                stat.style.width = (baseStat/2.55)+'%'
+                stat.innerHTML = baseStat
             }
             loader.style.display = "none";
             
@@ -66,6 +103,20 @@ function init(){
             }
 
         }
+    }
+
+    function createWeightHeight(property, value){
+        var li = document.createElement('li')
+        var propertySpan = document.createElement("span")
+        var valueSpan = document.createElement("span")
+        propertySpan.setAttribute("class", "property")
+        valueSpan.setAttribute("class", "value")
+        propertySpan.appendChild(document.createTextNode(property))
+        valueSpan.appendChild(document.createTextNode(value))
+        li.appendChild(propertySpan)
+        li.appendChild(valueSpan)
+
+        return li
     }
 
     function createElement(element){
