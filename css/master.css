@@ -31,9 +31,9 @@ body {
 }
 #searchBar input{
   height: 100%;
-  color:#000000;
   background-color:#00909E;
   border-color:#00909E;
+  color:#000000;
   display: block;
   width: 80%;
   font-size: 200%;
@@ -43,7 +43,7 @@ body {
   border-radius: 20px;
 }
 ::placeholder {
-  color: rgba(201,209,211,0.7);
+  color: #000000;
 }
 #searchBar div{
   float: right;
