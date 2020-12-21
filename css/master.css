@@ -32,7 +32,6 @@ body {
 #searchBar input{
   height: 100%;
   background-color:#00909E;
-  border-color:#00909E;
   color:#000000;
   display: block;
   width: 80%;
@@ -56,13 +55,13 @@ body {
   padding: 33% 33% 33% 33%;
   background-color: #00909E;
   border-radius: 15%;
-  border: 2px solid #C9D1D3;
+  border: 2px solid #000000;
 }
 
 select {
   width: 80%;
   height: 100px;
-color:#000000;
+  color:#000000;
   background-color:#00909E;
   border-color:#00909E;
   padding: 12px 20px;
@@ -103,7 +102,7 @@ color:#000000;
   background-color: #00909E;
   border: 2px solid;
   border-radius: 10px;
-  color:#C9D1D3;
+  color:#000000;
 }
 
 .header{
@@ -252,3 +251,4 @@ text-align:left;
   margin-top: 0.2em;
   font-size: 2.5em;
 }
+
