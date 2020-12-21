@@ -31,7 +31,7 @@ body {
 }
 #searchBar input{
   height: 100%;
-  color:#C9D1D3;
+  color:#000000;
   background-color:#00909E;
   border-color:#00909E;
   display: block;
@@ -62,7 +62,7 @@ body {
 select {
   width: 80%;
   height: 100px;
-  color:#C9D1D3;
+color:#000000;
   background-color:#00909E;
   border-color:#00909E;
   padding: 12px 20px;
@@ -186,12 +186,14 @@ text-align:left;
   padding: 1em;
   padding-left: 3em;
   background-color: #00909E;
+  color:#000000;
   border-radius: 15px;
   text-align: left;
 }
 
 .stats div{
   margin: 1.3em;
+  color:#000000;
   text-align: left;
   font-size: 2em;
   margin-left: 0;
@@ -212,6 +214,7 @@ text-align:left;
 
 #types div{
   text-transform: capitalize;
+  color:#000000;
   display: inline-block;
   height: auto;
   width: 35%;
@@ -224,6 +227,7 @@ text-align:left;
 
 #pokemonInfo {
   text-align: center;
+  color:#000000;
   column-count: 2;
   list-style: none;
   text-align: left;
