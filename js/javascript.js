@@ -156,9 +156,13 @@ function createElement(name, num){
     return li
 }
 
-function searchPokemon(){
+function searchBarPokemon(){
     searchBar = document.getElementById("searchBar")
     id = searchBar.children[1].value;
+    searchPokemon(id)
+}
+
+function searchPokemon(id){
     page = window.location.pathname.replace("index.html", "pokemon.html?id="+id)
     window.location.href = page
 }

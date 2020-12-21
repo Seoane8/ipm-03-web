@@ -14,8 +14,8 @@
 	</header>
 		<div class="body">
 			<div  id="searchBar">
-				<div><img src="img/search.svg" alt="search button" onclick=searchPokemon()></div>
-				<input type="text" placeholder="Search a Pokémon..." onkeypress="if (event.keyCode == 13){searchPokemon()}">
+				<div><img src="img/search.svg" alt="search button" onclick=searchBarPokemon()></div>
+				<input type="text" placeholder="Search a Pokémon..." onkeypress="if (event.keyCode == 13){searchPokemon(this.value)}">
 			</div>
 			<select id="typeSelect" onchange=searchType(this.value)>
 				<option hidden selected>Select a type...</option>
