@@ -12,17 +12,17 @@
 			<h1><a style="text-decoration:none" href="index.html">Pokedex</a></h1>
 		</div>
 	</header>
-		<div class="body">
-			<div  id="searchBar">
-				<div><img src="img/search.svg" alt="search button" onclick=searchBarPokemon()></div>
+		<div class="body" role="main">
+			<div  id="searchBar" role="search">
+				<div><img src="img/search.svg" role="button" alt="search button" onclick=searchBarPokemon()></div>
 				<input type="text" placeholder="Search a Pokémon..." onkeypress="if (event.keyCode == 13){searchPokemon(this.value)}">
 			</div>
-			<select id="typeSelect" onchange=searchType(this.value)>
+			<select id="typeSelect" role="form" onchange=searchType(this.value)>
 				<option hidden selected>Select a type...</option>
 				<option value="0">all</option>
 			</select>
 			<div class="loader" id=listLoader></div>
-			<ul class="name" id="typeList">
+			<ul class="name" id="typeList" aria-live="assertive">
 
 			</ul>
 		</div>
