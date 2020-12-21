@@ -22,15 +22,26 @@
     100% { transform: rotate(360deg); }
   }
   
-  .searchbar{
-    padding: 20px;	
-
+  #searchBar{
+    height: 42px;
+    margin: 20px 20%;
   }
-
-  .searchButton{
-      width: 20%;
-      padding: 10px 20px;
-      margin-top: 50px;
+  #searchBar input{
+    height: 42px;
+    display: block;
+    width: 80%;
+  }
+  #searchBar div{
+    float: right;
+    height: 100%;
+    position: relative;
+    right: 6%;
+  }
+  #searchBar div img{
+    height: 60%;
+    padding: 33% 33% 33% 33%;
+    background-color: #e5e5e5;
+    border-radius: 15%;
   }
   
   input[type=text] {

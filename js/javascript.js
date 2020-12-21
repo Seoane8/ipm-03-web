@@ -69,13 +69,14 @@ function searchNext(urlNext){
 
                 typeList.appendChild(element)
             }
+            var body = document.getElementsByClassName("body")[0]
             var button = document.createElement("button")
             var urlNext = resultado["next"]
             button.setAttribute("onclick", "searchNext('"+urlNext+"')")
             button.appendChild(document.createTextNode("See More"))
             button.setAttribute("id", "seeMoreButton")
             loader.style.display = "none"
-            typeList.appendChild(button)
+            body.appendChild(button)
         }else if(this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
             loader.style.display = "block";
         }else if(this.readyState == 4 && this.status != 200){
@@ -143,7 +144,8 @@ function createElement(name, num){
     h4 = document.createElement("h4")
 
     img.setAttribute("src", urlImg)
-    img.setAttribute("onerror", "this.src='img/unknown.jpg'")
+    img.setAttribute("alt", name+" image")
+    img.setAttribute("onerror", "this.src='img/unknown.jpg' this.alt='Pokemon image not available'")
     h4.appendChild(document.createTextNode(name))
     div.appendChild(img)
     div.appendChild(h4)
@@ -154,13 +156,9 @@ function createElement(name, num){
     return li
 }
 
-function searchPokemonPressKey(key,id){
-    if (key.keyCode == 13){
-        searchPokemon(id)
-    }
-}
-
-function searchPokemon(id){
+function searchPokemon(){
+    searchBar = document.getElementById("searchBar")
+    id = searchBar.children[1].value;
     page = window.location.pathname.replace("index.html", "pokemon.html?id="+id)
     window.location.href = page
 }

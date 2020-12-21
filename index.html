@@ -13,7 +13,10 @@
 		</div>
 	</header>
 		<div class="body">
-				<h1><input type="text" placeholder="Search a Pokémon..." onkeypress=searchPokemonPressKey(event,this.value)></h1>
+			<div  id="searchBar">
+				<div><img src="img/search.svg" alt="search button" onclick=searchPokemon()></div>
+				<input type="text" placeholder="Search a Pokémon..." onkeypress="if (event.keyCode == 13){searchPokemon()}">
+			</div>
 			<select id="typeSelect" onchange=searchType(this.value)>
 				<option hidden selected>Select a type...</option>
 				<option value="0">all</option>

@@ -38,16 +38,25 @@ function init(){
 
         if(this.readyState == 4 && this.status == 200){
             var resultado = JSON.parse(this.responseText)
-            var name = document.getElementById("pokemonName")
+            var body = document.getElementsByClassName("body")[0]
+            var name = document.createElement("h1")
             var splashart = document.getElementById("pokemonSplashArt")
             var ability = document.getElementById("pokemonAbility")
             var move = document.getElementById("pokemonMove")
             var types = document.getElementById("types")
             var info = document.getElementById("pokemonInfo")
             
-            name.innerHTML = resultado["name"]
-            splashart.setAttribute("src",  resultado["sprites"]["other"]["official-artwork"]["front_default"])
-            splashart.setAttribute("onerror", "this.src='img/unknown.jpg'")
+            name.setAttribute("class", "name")
+            name.setAttribute("id", "pokemonName")
+            name.innerHTML = resultado["name"]+' #'+resultado["id"]
+            body.insertBefore(name, types)
+            
+            img = resultado["sprites"]["other"]["official-artwork"]["front_default"]
+            if (img){
+                splashart.setAttribute("src",  img)
+                splashart.setAttribute("alt", resultado["name"]+" image")
+            }
+            
 
             for (let i in resultado['types']){
                 var type = resultado['types'][i]['type']['name']
@@ -96,10 +105,17 @@ function init(){
             
         }else if(this.readyState == 1 || this.readyState == 2 || this.readyState == 3){
             loader.style.display = "block";
+        }else if(this.readyState == 4 && this.status == 404){
+            loader.style.display = "none";
+            window.alert("The selected pokemon doesn't exist")
+            history.go(-1);
+
         }else if(this.readyState == 4 && this.status != 200){
             if(window.confirm("An error has ocurred. Retry?")){
                 this.open("GET", urlNext)
                 this.send()
+            }else{
+                history.go(-1);
             }
 
         }
@@ -124,7 +140,7 @@ function init(){
         p = document.createElement("p")
 
         p.appendChild(document.createTextNode(element))
-        p.setAttribute("align","left")
+        //p.setAttribute("align","left")
         return p
     }
 
