@@ -120,12 +120,12 @@
     text-transform: capitalize;
   }
 
-  .rows{
-	padding-top:120px;
+  .columns{
+	column-count:2;
   }
   
    .body{
-	text-align:center;
+	text-align: center;
   }
   
   .left{
@@ -133,6 +133,12 @@
   }
 
   .stats {
+    padding: 5px;
+    background-color: #e5e5e5;
+    border-radius: 15px;
+  }
+  
+  .container {
     padding: 5px;
     background-color: #e5e5e5;
     border-radius: 15px;
