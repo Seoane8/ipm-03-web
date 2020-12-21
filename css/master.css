@@ -2,7 +2,7 @@
     position: relative;
   }					
   
-  body {background-color: #F9F9F9;}
+  body {background-color: #465881;}
 
   .loader {
     display: block;
@@ -27,6 +27,9 @@
     margin: 20px 20%;
   }
   #searchBar input{
+	color:#C9D1D3;
+	background-color:#00909E;
+	border-color:#00909E;
     height: 42px;
     display: block;
     width: 80%;
@@ -40,7 +43,7 @@
   #searchBar div img{
     height: 60%;
     padding: 33% 33% 33% 33%;
-    background-color: #e5e5e5;
+    background-color: #00909E;
     border-radius: 15%;
   }
   
@@ -52,6 +55,9 @@
   }
   
   select {
+	color:#C9D1D3;
+	background-color:#00909E;
+	border-color:#00909E;
     width: 60%;
     padding: 12px 20px;
     box-sizing: border-box;
@@ -80,10 +86,10 @@
   .header{
     padding: 5px;
     text-align: center;
-    background: #414141;
+    background: #1B2A49;
     color: white;
     font-size: 25px;
-    font-family: Raleway;
+    font-family: Broadway;
   }
 
   #pokemonSplashArt{
@@ -93,25 +99,25 @@
   }
   
   a:link {
-    color: #F9F9F9;
+    color: #C9D1D3;
     background-color: transparent;
     text-decoration: none;
   }
 
   a:visited {
-    color: #F9F9F9;
+    color: #C9D1D3;
     background-color: transparent;
     text-decoration: none;
   }
 
   a:hover {
-    color: #F9F9F9;
+    color: #C9D1D3;
     background-color: transparent;
     text-decoration: none;
   }
 
   a:active {
-    color: #F9F9F9;
+    color: #C9D1D3;
     background-color: transparent;
     text-decoration: none;
   }
@@ -126,6 +132,8 @@
   
    .body{
 	text-align: center;
+	font-family: lato;
+	color: #C9D1D3;
   }
   
   .left{
@@ -134,13 +142,13 @@
 
   .stats {
     padding: 5px;
-    background-color: #e5e5e5;
+    background-color: #00909E;
     border-radius: 15px;
   }
   
   .container {
     padding: 5px;
-    background-color: #e5e5e5;
+    background-color: #00909E;
     border-radius: 15px;
   }
 
@@ -175,7 +183,7 @@
   
   #pokemonInfo {
     padding-left: 0;
-    background-color: #e5e5e5;
+    background-color: #00909E;
     border-radius: 15px;
     text-align: center;
     column-count: 2;
