@@ -163,10 +163,7 @@ function searchBarPokemon(){
 }
 
 function searchPokemon(id){
-    arr = window.location.href.split('/')
-    last = arr[arr.length-1]
-    page = window.location.href.replace(last, "pokemon.html?id="+id)
-    window.location.href = page
+    window.location.href = "/pokemon.html?id="+id
 }
 	
 	
