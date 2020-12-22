@@ -252,3 +252,73 @@ text-align:left;
   font-size: 2.5em;
 }
 
+
+
+/*@media (min-width: 980px){
+  *//*For Tablets*//*
+  body {
+    font-size: 0.7em;
+  }
+
+  #searchBar {
+    height: 70px;
+  }
+
+  #searchBar div img{
+    padding: 28%;
+  }
+
+  #typeSelect {
+    height: 70px;
+  }
+
+  #typeList li {
+    width: 25%;
+  }
+
+  #seeMoreButton {
+    height: 70px;
+  }
+}*/
+
+@media (min-width: 1200px) {
+  /*For desktop*/
+  body {
+    font-size: 0.6em;
+  }
+
+  #searchBar {
+    width: 40%;
+    margin: 5% 30%;
+    height: auto;
+  }
+
+  #searchBar  div{
+    width: 5%;
+  }
+  #searchBar  div img{
+    height: 100%;
+  }
+  
+  #typeSelect{
+    width: 40%;
+    height: auto;
+  }
+
+  #typeList {
+    margin-top: 3%;
+  }
+
+  #typeList li {
+    width: 20%;
+  }
+  
+  #seeMoreButton {
+    height: auto;
+    width: auto;
+    padding: 0.5em;
+    margin-bottom: 2em;
+    margin-top: 1em;
+  }
+}
+

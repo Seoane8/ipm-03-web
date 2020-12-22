@@ -40,8 +40,9 @@ function getTypes(){
 
 function searchAll(){
     var typeList = document.getElementById("typeList")
+    var limit = 30
     typeList.innerHTML = ''
-    searchNext("https://pokeapi.co/api/v2/pokemon?offset=0&limit=21")
+    searchNext("https://pokeapi.co/api/v2/pokemon?offset=0&limit="+limit+"")
 }
 
 function searchNext(urlNext){
