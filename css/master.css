@@ -283,7 +283,7 @@ text-align:left;
 
 @media (min-width: 1200px) {
   /*For desktop*/
-  body {
+  .size {
     font-size: 0.6em;
   }
 
@@ -320,12 +320,8 @@ text-align:left;
     margin-bottom: 2em;
     margin-top: 1em;
   }
-}
-
-
-@media only screen and (min-width: 1200px) {
-
-	#pokemonSplashArt{
+  
+  	#pokemonSplashArt{
 	  width: 30%;
 	}
 	
@@ -368,7 +364,8 @@ text-align:left;
 		padding: 0.5em;
 	
 	}
-	
-	
+  
 }
+
+
 
