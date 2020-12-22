@@ -298,6 +298,7 @@ text-align:left;
   }
   #searchBar  div img{
     height: 100%;
+    width: 100%;
   }
   
   #typeSelect{
@@ -359,11 +360,18 @@ text-align:left;
 	}
 	
 	span.info{
-		display: inline-block;
+		display: table-cell;
 		width:40%;
 		padding: 0.5em;
 	
 	}
+	
+	span.center{
+		display: inline-block;
+		width:70%;
+		text-align:center;
+	}
+	
   
 }
 
