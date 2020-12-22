@@ -281,7 +281,7 @@ text-align:left;
   }
 }*/
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   /*For desktop*/
   .size {
     font-size: 0.6em;
