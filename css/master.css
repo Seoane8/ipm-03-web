@@ -322,3 +322,53 @@ text-align:left;
   }
 }
 
+
+@media only screen and (min-width: 1200px) {
+
+	#pokemonSplashArt{
+	  width: 30%;
+	}
+	
+	.header{
+		font-size: 2em;
+	}
+
+	.moves p{
+		font-size: 1em;
+	}
+	
+	#pokemonName {
+		font-size: 2em;
+	}
+	
+	#types div{
+		font-size: 1.2em;
+		width: 10%;
+	}
+	
+	.stats div{
+		font-size: 0.9em;
+		text-align: left;
+}
+
+	#pokemonInfo {
+		font-size: 0.35em;
+		text-align:center;
+	}
+	
+	.container{
+		text-align:left;
+		margin: 0em;
+		margin-top: 3em;
+	}
+	
+	span.info{
+		display: inline-block;
+		width:40%;
+		padding: 0.5em;
+	
+	}
+	
+	
+}
+
